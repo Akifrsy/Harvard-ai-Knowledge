@@ -1,0 +1,142 @@
+Knowledge-Based Agent: Agents that reason by operating on internal representations of knowledge.
+
+	-If it didn't rain, Harry visited Hagrid today.
+	-Harry visited Hagrid or Dumbledore today, but not both.
+	-Harry visited Dumbledore today.
+	-Harry did ot visit Hagrid today.
+	-It rained today.
+
+Sentence: An assertion about the world in a knowledge representation language.
+
+Knowledge Base: A set of sentences known by a knowledge-based agent.
+
+Entailment: a=b
+   In every model in which sentence a is true, sentence b is also true.
+
+Inference: The process of deriving new sentences from old ones. 
+
+Model Checking: 
+     -To determine if KB=a:
+	-Enumerate all possible models.
+	-If in every model where KB is true, a is true, then KB entails a.
+	-Otherwise, KB does not entail a.
+
+CLUE
+   Propositional Symbols
+		-Mustard
+		-Plum
+		-Scarlet
+		-Ballroom
+		-Kitchen
+		-Library
+		-Knife
+		-Revolver
+		-Wrench
+
+Clue
+	(mustard v plum v scarlet)
+	(ballroom v kitchen v library)
+	(knife v revolver v wrench)
+				plum
+	mustard v library v revolver 
+
+Logic Puzzles
+	-Gilderoy, Minerva, Pomona and Horace each belong to a different one of the four houses: Gryffindor, Hufflepuff, Ravenclaw and Slytherin House.
+	-Gilderoy belongs to Gryffindor or Ravenclaw.
+	-Pomona does not belong in Slytherin.
+	-Minerva belongs to Gryffindor.
+
+		Propositional Symbols
+			-GilderoyGryffindor
+			-GilderoyHufflepuff
+			-GilderoyRavenclaw
+			-GilderoySlytherin
+
+			-PomonaGryffindor
+			-PomonaHufflepuff
+			-PomonaRavenclaw
+			-PomonaSlytherin
+
+			-MinervaGryffindor
+			-MinervaHufflepuff
+			-MinervaRavenclaw
+			-MinervaSlytherin
+
+			-HoraceGryffinodr
+			-HoraceHufflepuff
+			-HoraceRavenclaw
+			-HoraceSlytherin
+
+					(PomonaSlytherin -> PomonaHufflepuff)
+					(MinervaRavenclaw -> GilderoyRavenclaw)
+					(GilderoyGryffindor v GilderoyRavenclaw)
+
+
+Search Promblems
+	-Initial State
+	-Actions
+	-Transition Model
+	-Goal Test
+	-Path Cost Function
+
+Theorem Proving:
+	-Initial State: Starting knowledge based
+	-Actions: Inference rules
+	-Transition Model: New knowledge base after inference
+	-Goal Test: Check statement we're trying to prove
+	-Path Cost Function: Number of steps in proof
+
+Clause: A disjunction of literals.
+	e.g. Pv v Q	v R
+
+Conjunctive Normal Form: Logical sentence that is a conjunction of clauses
+	e.g. (A v B v C) v (D v E) v (F v G)
+
+Conversion to CNF 
+	-Eliminate biconditionals
+		-Turn (a <-> b) into (a -> b) v (b -> a)
+	-Eliminate implications
+		-Turn (a -> b) into a v B
+	-Move inwards using De Morgan's Laws
+		-e.g. turn (a v b) into a v B
+	-Use distributive laws to distribute v wherever possible
+
+Interence by Resolution
+	-To determine if KB = a:
+	-Check if (KB v a) is a contradiction?
+		-If so, then KB = a.
+		-Otherwise, no entailment.
+
+Interence by Resolution
+	-To determine if KB = a:
+		-Convert (KB v a) to Conjunctive Normal Form.
+		-Keep checking to see if we can use resulation to produce a new clause.
+			-If ever we produce the empty clause (equivalent to False), we have a contradiction, and KB = a.
+			-Otherwise, if we can't  add new clauses, no entailment.
+
+Propositional Symbols
+	MinervaGryffindor
+	MinervaHufflepuff
+	MinervaRavenclaw
+	MinervaSlytherin
+
+First-Order Logic
+	Constant Symbol
+		-Minerva
+		-Pomona
+		-Horace
+		-Gilderoy
+		-Gryffindor
+		-Hufflepuff
+		-Ravenclaw
+		-Slytherin
+	
+	Predicate Symbol
+		-Person
+		-House
+		-BelongsTo
+
+	Person(Minerva) --> Minerva is a person.
+	House(Gryffindor) --> Gryffindor is a house.
+	House(Minerva) --> Minerva is not a house.
+	BelongsTo(Minerva, Gryffindor) --> Minerva belongs to Gryffindor.
